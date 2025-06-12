@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
 
                 $message = '<div class="alert alert-success">✅ Document envoyé et partagé avec succès !</div>';
-                log_action("(Creation) A upload un document",$document_id);
+                log_action("(Creation) A upload un document", ['id' => $document_id]);
                 header("location: doclist.php");
                 exit();
             } else {
