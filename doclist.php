@@ -2,6 +2,7 @@
 require("includes/db.php");
 include("includes/logs.php");
 
+session_start();
 if (isset($_SESSION['id'])) {
     $user_id = $_SESSION['id'];
 } else {
