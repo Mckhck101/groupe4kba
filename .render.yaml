@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: groupe4kba-php-app
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
