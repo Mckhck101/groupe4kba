@@ -1,0 +1,11 @@
+admin
+---------------------------
+mackedzoajunior@gmail.com
+1234@56Mack
+
+user
+----------------------------
+mackedzoa@gmail.com
+Mack1234@!
+
+invite = 200

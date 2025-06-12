@@ -1,0 +1,7 @@
+Catégorisation : ajouter les catégories détecter via L'ia
+
+------------------------------------------------------------------
+
+Log : Creation des logs prompt Prescillia❤️
+L'user doit pouvoir supprimer son doc 'Dans la table'
+Vérifier les signatures pour eviter les doublons et les plagiats

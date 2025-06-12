@@ -1,0 +1,420 @@
+:root {
+--primary-color: #5d259c; /* Violet profond, base de notre thème */
+--primary-light: #7c4fc9; /* Version plus claire du violet */
+--secondary-color: #007bff; /* Bleu vibrant, pour les accents */
+--accent-color: #28a745; /* Vert succès */
+--warning-color: #ffc107; /* Jaune avertissement */
+--info-color: #17a2b8; /* Cyan info */
+--dark-bg: #212529; /* Fond sombre pour la navbar / sidebar */
+--light-bg: #f8f9fa; /* Fond clair général */
+--text-color: #343a40; /* Texte principal */
+--heading-color: #1a202c; /* Couleur des titres */
+--card-bg: #ffffff; /* Fond des cartes */
+--border-color: #e9ecef; /* Couleur des bordures */
+--soft-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Ombre douce pour les éléments */
+--strong-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); /* Ombre plus prononcée */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: var(--light-bg); /* Fond très clair */
+    color: var(--text-color);
+}
+
+/* --- Global App Layout --- */
+.app-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.page-content-wrapper {
+    display: flex;
+    flex: 1; /* Permet au contenu de prendre tout l'espace disponible */
+}
+
+/* --- Header (Navbar) --- */
+.app-header {
+    background: linear-gradient(to right, var(--primary-color), var(--primary-light)); /* Dégradé violet */
+    border-bottom: none;
+    box-shadow: var(--strong-shadow); /* Ombre plus prononcée */
+    color: white; /* Texte en blanc pour le contraste */
+    padding: 0.8rem 0;
+}
+.app-header .navbar-brand {
+    font-family: 'Ubuntu', sans-serif; /* Police distinctive pour le logo */
+    font-weight: 700;
+    color: white !important;
+    font-size: 1.8rem;
+}
+.app-header .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important; /* Liens légèrement transparents */
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.app-header .navbar-nav .nav-link:hover,
+.app-header .navbar-nav .nav-link.active {
+    color: white !important;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Petit effet de lumière au survol */
+}
+.app-header .dropdown-menu {
+    border-radius: 10px;
+    box-shadow: var(--soft-shadow);
+    border: none;
+}
+.app-header .dropdown-item {
+    color: var(--text-color);
+    transition: background-color 0.2s ease;
+}
+.app-header .dropdown-item:hover {
+    background-color: var(--primary-light);
+    color: white;
+}
+.app-header .user-header {
+    background: linear-gradient(to bottom right, var(--primary-color), var(--primary-light)) !important; /* Dégradé pour l'entête utilisateur */
+    color: white !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.app-header .btn-outline-primary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+.app-header .btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+
+/* --- Sidebar --- */
+.app-sidebar {
+    background-color: var(--dark-bg); /* Fond sombre */
+    color: #c2c7d0;
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    box-shadow: var(--strong-shadow); /* Ombre forte pour la sidebar */
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+.app-sidebar .sidebar-brand {
+    background-color: var(--primary-color); /* Couleur primaire pour la marque */
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 -3px 5px rgba(0,0,0,0.1); /* Ombre interne subtile */
+}
+.app-sidebar .brand-link {
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.app-sidebar .brand-image {
+    height: 35px;
+    margin-right: 0.75rem;
+}
+.app-sidebar .sidebar-menu {
+    padding-top: 10px;
+}
+.app-sidebar .nav-item .nav-link {
+    color: #c2c7d0;
+    padding: 0.9rem 1.2rem;
+    display: flex; /* Utilisation de flexbox pour l'alignement */
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent; /* Bordure d'accentuation */
+}
+.app-sidebar .nav-item .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.08); /* Effet de survol doux */
+    color: white;
+    border-left-color: var(--primary-light); /* Accentuation au survol */
+}
+.app-sidebar .nav-item .nav-link.active {
+    background-color: var(--primary-color); /* Couleur primaire pour l'actif */
+    color: white;
+    border-left-color: var(--secondary-color); /* Accentuation vive pour l'actif */
+    font-weight: 600;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.2); /* Ombre interne pour l'actif */
+}
+.app-sidebar .nav-icon {
+    margin-right: 0.8rem;
+    font-size: 1.3rem;
+    color: var(--secondary-color); /* Icônes en couleur secondaire pour la vivacité */
+}
+.app-sidebar .nav-link.active .nav-icon {
+    color: white; /* Icônes blanches quand actif */
+}
+.app-sidebar .nav-header {
+    color: #8c98a3; /* Gris plus clair pour les titres de section */
+    font-weight: 700;
+    padding: 15px 1.2rem 5px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+/* --- Main Content Area --- */
+.app-main {
+    flex: 1;
+    background-color: var(--light-bg);
+    padding: 30px; /* Augmenter le padding */
+    overflow-x: hidden; /* Empêche le débordement horizontal */
+}
+.app-content-header {
+    background-color: transparent; /* Pas de fond, juste le padding */
+    padding: 1rem 0;
+    border-bottom: none; /* Supprimer la bordure */
+    margin-bottom: 30px;
+}
+.app-content-header h1 {
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--heading-color);
+    font-weight: 700;
+    font-size: 2.2rem;
+}
+.breadcrumb-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.breadcrumb-item.active {
+    color: var(--text-color);
+}
+
+/* --- Small Box (Statistique Cards) --- */
+.small-box {
+    border-radius: 12px; /* Bords plus arrondis */
+    box-shadow: var(--soft-shadow); /* Ombre douce */
+    display: flex; /* Utilisation de flexbox pour aligner l'icône */
+    flex-direction: column;
+    margin-bottom: 25px;
+    overflow: hidden; /* Important pour les coins arrondis et le dégradé */
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.small-box:hover {
+    transform: translateY(-8px); /* Léger soulèvement au survol */
+    box-shadow: var(--strong-shadow); /* Ombre plus intense au survol */
+}
+.small-box .inner {
+    padding: 20px;
+    z-index: 1;
+}
+.small-box h3 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2.8rem; /* Plus grand pour l'effet "wow" */
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    position: relative;
+    z-index: 1;
+    color: white; /* Texte blanc sur les fonds colorés */
+}
+.small-box p {
+    font-size: 1.1rem; /* Texte de paragraphe plus lisible */
+    color: rgba(255, 255, 255, 0.9);
+    z-index: 1;
+    position: relative;
+}
+.small-box .icon {
+    color: rgba(0,0,0,.1); /* Rendre l'icône de fond plus discrète */
+    z-index: 0;
+    font-size: 70px; /* Taille de base */
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-10deg); /* Légère rotation et centrage */
+    transition: all .4s cubic-bezier(.25, .8, .25, 1); /* Transition plus fluide */
+}
+.small-box:hover .icon {
+    font-size: 90px; /* Taille plus grande au survol */
+    transform: translateY(-50%) rotate(0deg) scale(1.1); /* Retour à la normale et léger zoom */
+}
+.small-box > .small-box-footer {
+    background: rgba(0,0,0,.15); /* Fond du footer plus transparent */
+    color: rgba(255,255,255,.9);
+    padding: 8px 0;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+.small-box > .small-box-footer:hover {
+    background: rgba(0,0,0,.25); /* Plus sombre au survol */
+    color: white;
+}
+.small-box.bg-primary { background: linear-gradient(to right, #5d259c, #7c4fc9); } /* Violet éclatant */
+.small-box.bg-success { background: linear-gradient(to right, #28a745, #38c172); } /* Vert frais */
+.small-box.bg-warning { background: linear-gradient(to right, #ffc107, #ffcd38); color: var(--text-color) !important; } /* Jaune dynamique */
+.small-box.bg-warning .inner p, .small-box.bg-warning .inner h3 { color: var(--text-color); } /* Texte foncé pour le jaune */
+.small-box.bg-warning .icon { color: rgba(0,0,0,0.2); }
+.small-box.bg-warning .small-box-footer { background: rgba(0,0,0,.1); color: var(--text-color); }
+.small-box.bg-warning .small-box-footer:hover { background: rgba(0,0,0,.15); color: var(--heading-color); }
+
+.small-box.bg-info { background: linear-gradient(to right, #17a2b8, #20c997); } /* Cyan / Turquoise */
+
+/* --- Cards (Tableaux, etc.) --- */
+.card {
+    border-radius: 12px; /* Bords arrondis pour les cartes */
+    box-shadow: var(--soft-shadow); /* Ombre douce */
+    border: none; /* Pas de bordure par défaut */
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px); /* Léger soulèvement */
+    box-shadow: var(--strong-shadow); /* Ombre plus intense */
+}
+.card-header {
+    background-color: var(--card-bg); /* Fond de l'en-tête de carte */
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem 1.5rem;
+    border-top-left-radius: 12px; /* Garde les bords arrondis */
+    border-top-right-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-title {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    color: var(--heading-color);
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+.card-tools .btn {
+    border-radius: 50px; /* Boutons pill */
+    font-weight: 500;
+    padding: 8px 20px;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+.card-tools .btn:hover {
+    background-color: var(--primary-light);
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+.table-responsive {
+    border-radius: 12px;
+    overflow: hidden; /* Assure que les coins arrondis sont visibles */
+}
+.table {
+    margin-bottom: 0;
+    background-color: var(--card-bg); /* Fond de table blanc */
+}
+.table thead th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    padding: 15px 20px;
+    border-bottom: none;
+    vertical-align: middle;
+}
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+.table tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.05); /* Survol subtil */
+}
+.table tbody td {
+    padding: 15px 20px;
+    vertical-align: middle;
+    color: var(--text-color);
+}
+.table .btn-sm {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    border-radius: 8px; /* Bords légèrement arrondis pour les boutons d'action */
+    transition: transform 0.2s ease;
+}
+.table .btn-sm:hover {
+    transform: translateY(-1px);
+}
+.table .btn-info { background-color: var(--info-color); border-color: var(--info-color); color: white; }
+.table .btn-info:hover { background-color: #117a8b; border-color: #117a8b; }
+.table .btn-success { background-color: var(--accent-color); border-color: var(--accent-color); color: white; }
+.table .btn-success:hover { background-color: #1e7e34; border-color: #1e7e34; }
+.table .btn-danger { background-color: #dc3545; border-color: #dc3545; color: white; }
+.table .btn-danger:hover { background-color: #c82333; border-color: #c82333; }
+
+/* Icones de fichier dans le tableau */
+.file-icon {
+    font-size: 1.2rem;
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+/* Pagination */
+.pagination .page-item .page-link {
+    color: var(--primary-color);
+    border-color: var(--border-color);
+    border-radius: 8px; /* Bords arrondis */
+    margin: 0 3px;
+    transition: all 0.3s ease;
+}
+.pagination .page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    box-shadow: var(--soft-shadow);
+}
+.pagination .page-item .page-link:hover {
+    background-color: var(--primary-light);
+    color: white;
+    border-color: var(--primary-light);
+}
+
+/* --- Footer --- */
+.app-footer {
+    background-color: var(--dark-bg); /* Fond sombre comme la sidebar */
+    color: #c2c7d0;
+    padding: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.app-footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.app-footer a:hover {
+    color: var(--primary-light);
+}
+
+
+@media (max-width: 991.98px) {
+    .app-sidebar {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        position: relative;
+        box-shadow: none;
+        border-right: none;
+    }
+    .page-content-wrapper {
+        flex-direction: column;
+    }
+    .app-main {
+        padding: 20px 15px;
+    }
+    .app-header .navbar-brand.d-lg-none {
+        display: block !important;
+    }
+    .app-header .navbar-nav {
+        flex-direction: column;
+    }
+    .app-header .navbar-nav .nav-item {
+        margin-bottom: 5px;
+    }
+}
